@@ -6,13 +6,13 @@ if [ $# -ne 1 ]; then
 fi
 
 if [ $1 = "redhat" ]; then
-    docker run --rm -i \
+    docker run --rm -it \
         -v $PWD:/vuls \
         vuls/gost fetch redhat
 fi
 
 if [ $1 = "debian" ]; then
-    docker run --rm -i \
+    docker run --rm -it \
         -v $PWD:/vuls \
         vuls/gost fetch debian
 fi
