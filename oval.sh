@@ -1,5 +1,6 @@
 #!/bin/sh
 
+docker pull vuls/goval-dictionary
 
 if [ $# -ne 1 ]; then
   echo "specify [redhat amazon debian ubuntu alpine] as cmd arg"
@@ -9,7 +10,7 @@ fi
 if [ $1 = "redhat" ]; then
     docker run --rm -it \
         -v $PWD:/vuls \
-        vuls/goval-dictionary fetch-redhat 6 7 8
+        vuls/goval-dictionary fetch-redhat  6 7 8 
 fi
 
 if [ $1 = "amazon" ]; then

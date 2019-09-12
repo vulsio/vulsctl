@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker pull vuls/gost
+
 if [ $# -ne 1 ]; then
   echo "specify [redhat debian] as cmd arg"
   exit 1

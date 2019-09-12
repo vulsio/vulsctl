@@ -1,5 +1,7 @@
 #!/bin/sh
 
+docker pull vuls/go-cve-dictionary
+
 RELEASE=v0.9.0
 URL=https://github.com/future-architect/vuls/releases/download/${RELEASE}/cve.sqlite3.gz 
 
