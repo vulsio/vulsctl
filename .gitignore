@@ -1,0 +1,10 @@
+vuls
+.vscode
+*.sqlite3*
+*.log
+tags
+.gitmodules
+results/
+*config.toml
+.DS_Store
+.idea

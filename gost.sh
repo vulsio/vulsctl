@@ -1,20 +1,32 @@
-#!/bin/bash
+#! /bin/sh -
 
 docker pull vuls/gost
 
 if [ $# -ne 1 ]; then
-  echo "specify [redhat debian] as cmd arg"
-  exit 1
+	echo "specify [--redhat --debian]"
+	exit 1
 fi
 
-if [ $1 = "redhat" ]; then
-    docker run --rm -it \
-        -v $PWD:/vuls \
-        vuls/gost fetch redhat
-fi
+while test $# -gt 0
+do
+	case "$1" in
+		--redhat) docker run --rm -it \
+			-v $PWD:/vuls \
+			vuls/gost fetch redhat
+			;;
+		--debian) docker run --rm -it \
+			-v $PWD:/vuls \
+			vuls/gost fetch debian
+			;;
+		--*)  echo "specify [--redhat --debian]"
+			exit 1
+		    ;;
+		*) echo "specify [--redhat --debian]"
+			exit 1
+		    ;;
+	esac
+	shift
+done
 
-if [ $1 = "debian" ]; then
-    docker run --rm -it \
-        -v $PWD:/vuls \
-        vuls/gost fetch debian
-fi
+exit 0
+
