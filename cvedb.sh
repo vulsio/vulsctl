@@ -16,3 +16,9 @@ for i in `seq 2002 $(date +"%Y")`; do \
     -v $PWD:/vuls \
     vuls/go-cve-dictionary fetchnvd -years $i; \
 done
+
+for i in `seq 1998 $(date +"%Y")`; do \
+    docker run --rm -it \
+    -v $PWD:/vuls \
+    vuls/go-cve-dictionary fetchjvn -years $i; \
+done
