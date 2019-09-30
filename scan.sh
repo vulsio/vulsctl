@@ -7,7 +7,8 @@ docker run --rm -it\
     -v $PWD:/vuls \
     vuls/vuls configtest \
     -log-dir=/vuls/log \
-    -config=/vuls/config.toml # path to config.toml in docker
+    -config=/vuls/config.toml \
+    $@ 
 
 ret=$?
 if [ $ret -ne 0 ]; then
