@@ -207,7 +207,7 @@ if [[ $distro == "" ]]; then
 fi
 
 case $distro in
-	"ubuntu")
+	"ubuntu" | "pop")
 		apt-get $OPT install sqlite git gcc make wget
 		ubuntu;;
 	"rhel" | "centos")
