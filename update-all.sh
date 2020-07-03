@@ -8,4 +8,5 @@
 ./gost.sh --redhat && \
 ./gost.sh --debian && \
 ./cvedb.sh && \
-./exploitdb.sh
+./exploitdb.sh && \
+./msfdb.sh
