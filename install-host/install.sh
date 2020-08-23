@@ -64,9 +64,9 @@ install_vuls() {
 	mkdir /var/log/go-msfdb
 	chown $ID /var/log/go-msfdb
 	chmod 700 /var/log/go-msfdb
-	mkdir -p $GOPATH/src/github.com/takuzoo3868/go-msfdb
+	mkdir -p $GOPATH/src/github.com/takuzoo3868
 	cd $GOPATH/src/github.com/takuzoo3868/
-	git clone github.com/takuzoo3868/go-msfdb.git
+	git clone https://github.com/takuzoo3868/go-msfdb.git
 	cd go-msfdb;
 	make install;
 	#ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
