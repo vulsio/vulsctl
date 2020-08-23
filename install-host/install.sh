@@ -6,6 +6,12 @@ NC='\033[0m';
 ID=$(whoami);
 
 go() {
+	if command -v go &> /dev/null
+	then
+		echo "Go is already installed."
+		return
+	fi
+
 	url="https://golang.org/dl/$1"
 	wget "${url}";
 	echo -e "$RED""[!] Download successful : $url""$NC";
@@ -17,7 +23,6 @@ go() {
 	echo "export GOROOT=/usr/local/go" >> "$HOME"/.profile;
 	echo "export GOPATH=$HOME/go" >> "$HOME"/.profile;
 	echo "export PATH=$PATH:$GOROOT/bin:$GOPATH/bin" >> "$HOME"/.profile;
-
 }
 
 
