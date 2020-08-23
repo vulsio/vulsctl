@@ -63,9 +63,9 @@ fi
 OPT="${@}"
 
 distro=$(grep "^ID=" /etc/os-release | cut -d\= -f2 | sed -e 's/"//g')
-if [ $distro == "" ]; then
-    # Use the other way to detect the OS for CentOS 6.x
-    distro=$(cat /etc/redhat-release | awk '{print tolower($1)}')
+if [ $distro = "" ]; then
+	# Use the other way to detect the OS for CentOS 6.x
+	distro=$(cat /etc/redhat-release | awk '{print tolower($1)}')
 fi
 
 case $distro in
