@@ -53,7 +53,7 @@ if [ "x$(id -u)" != x0 ]; then
 	exit
 fi
 
-if [[ -z "${GOPATH}" ]]; then
+if [ -z "${GOPATH}" ]; then
 	echo "You might have to set GOPATH"
 	echo "Please run it again with GOPATH ENV Var"
 	echo
@@ -63,7 +63,7 @@ fi
 OPT="${@}"
 
 distro=$(grep "^ID=" /etc/os-release | cut -d\= -f2 | sed -e 's/"//g')
-if [[ $distro == "" ]]; then
+if [ $distro == "" ]; then
     # Use the other way to detect the OS for CentOS 6.x
     distro=$(cat /etc/redhat-release | awk '{print tolower($1)}')
 fi
