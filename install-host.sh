@@ -5,14 +5,11 @@ NC='\033[0m';
 
 ID=$(whoami);
 
-go_amd64() {
-	echo -e "$RED""Finding latest version of Go for AMD64...""$NC";
-	gourl="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
-	url="https://golang.org/dl/${gourl}"
-	latest="$(echo $url | grep -oP 'go[0-9\.]+' | grep -oP '[0-9\.]+' | head -c -2 )";
+go() {
+	url="https://golang.org/dl/$1"
 	wget "${url}";
 	echo -e "$RED""[!] Download successful : $url""$NC";
-	tar -C /usr/local -xzf go$latest.linux-amd64.tar.gz;
+	tar -C /usr/local -xzf $1
 	mkdir $HOME/go;
 	export GOROOT=/usr/local/go;
 	export GOPATH=$HOME/go;
@@ -23,29 +20,6 @@ go_amd64() {
 
 }
 
-go_arm() {
-  local GOURLREGEX='https://.*?/go/go[0-9\.]+\.linux-armv6l.tar.gz'
-
-  echo "Finding latest version of Go for ARM..."
-  local url_and_hash="$(wget -qO- https://golang.org/dl | grep --perl-regexp --after-context=5 --max-count=1 "${GOURLREGEX}" )"
-
-  local url="$(echo "$url_and_hash" | grep -oP ${GOURLREGEX})"
-  local hash="$(echo "${url_and_hash}" | grep -oP '(?<=<tt>)\w+(?=</tt>)')"
-
-  latest="${url##*/go/}"
-
-  if [  -f "${latest}" ]; then
-    echo "File ${latest} exists. Checking against hash: ${hash}"
-    if [ "$(sha256sum <"${latest}")" == "${hash}  -" ]; then
-      echo "Hash matches"
-    else
-      echo "Hash mismatch. Please remove the local file and re-run"
-    fi
-  else
-    echo "Downloading latest Go for ARM: ${latest}"
-    wget --quiet --continue --show-progress "${url}"
-  fi
-}
 
 # Download latest Golang shell script
 # https://gist.github.com/n8henrie/1043443463a4a511acf98aaa4f8f0f69
@@ -117,16 +91,19 @@ case $distro in
 	"ubuntu" | "pop")
 		apt-get update
 		apt-get $OPT install sqlite git gcc make wget
-		go_amd64
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
+		go $filename
 		install_vuls;;
 	"raspbian")
 		apt-get update
 		apt-get $OPT install sqlite git gcc make wget
-		go_arm
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-armv6l.tar\.gz' | head -n 1)";
+		go $filename
 		install_vuls;;
 	"rhel" | "centos")
 		yum $OPT install sqlite git gcc make wget
-		go_amd64
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
+		go $filename
 		install_vuls;;
 	*) # we can add more install command for each distros.
 		echo "\"$distro\" is not supported distro, so please install packages manually." ;;
