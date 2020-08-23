@@ -5,22 +5,7 @@ NC='\033[0m';
 
 ID=$(whoami);
 
-go() {
-	url="https://golang.org/dl/$1"
-	wget "${url}";
-	echo -e "$RED""[!] Download successful : $url""$NC";
-	tar -C /usr/local -xzf $1
-	mkdir $HOME/go;
-	export GOROOT=/usr/local/go;
-	export GOPATH=$HOME/go;
-	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin;
-	echo "export GOROOT=/usr/local/go" >> "$HOME"/.profile;
-	echo "export GOPATH=$HOME/go" >> "$HOME"/.profile;
-	echo "export PATH=$PATH:$GOROOT/bin:$GOPATH/bin" >> "$HOME"/.profile;
-}
 
-# Download latest Golang shell script
-# https://gist.github.com/n8henrie/1043443463a4a511acf98aaa4f8f0f69
 upgrade_vuls() {
 	echo -e "$RED""go-cve-dictionary + goval-dictionary upgrading...""$NC";
 	cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary; 
@@ -37,13 +22,8 @@ upgrade_vuls() {
 	make install;
 
 	echo -e "$RED""go-exploitdb installing...""$NC";	
-	mkdir /var/log/go-exploitdb
-	chown $ID /var/log/go-exploitdb
-	chmod 700 /var/log/go-exploitdb
-	mkdir -p $GOPATH/src/github.com/mozqnet;
-	cd $GOPATH/src/github.com/mozqnet;
-	git clone https://github.com/mozqnet/go-exploitdb.git;
-	cd go-exploitdb;
+	cd $GOPATH/src/github.com/mozqnet/go-exploitdb;
+	git pull
 	make install;
 
 	echo -e "$RED""go-msfdb installing...""$NC";	
@@ -55,6 +35,13 @@ upgrade_vuls() {
 	cd $GOPATH/src/github.com/future-architect/vuls;
 	git pull
 	make install; 
+
+	cp $GOPATH/bin/go-cve-dictionary /usr/local/bin/
+	cp $GOPATH/bin/go-exploitdb /usr/local/bin/
+	cp $GOPATH/bin/gost /usr/local/bin/
+	cp $GOPATH/bin/goval-dictionary /usr/local/bin/
+	cp $GOPATH/bin/vuls /usr/local/bin/
+	cp $GOPATH/bin/go-msfdb /usr/local/bin/
 	echo "Done."; 
 }
 
@@ -62,6 +49,13 @@ upgrade_vuls() {
 if [ "x$(id -u)" != x0 ]; then
 	echo "You might have to run it as root user."
 	echo "Please run it again with 'sudo'."
+	echo
+	exit
+fi
+
+if [[ -z "${GOPATH}" ]]; then
+	echo "You might have to set GOPATH"
+	echo "Please run it again with GOPATH ENV Var"
 	echo
 	exit
 fi

@@ -77,11 +77,13 @@ install_vuls() {
 	git clone https://github.com/future-architect/vuls.git;
 	cd vuls;
 	make install; 
+
 	cp $GOPATH/bin/go-cve-dictionary /usr/local/bin/
 	cp $GOPATH/bin/go-exploitdb /usr/local/bin/
 	cp $GOPATH/bin/gost /usr/local/bin/
 	cp $GOPATH/bin/goval-dictionary /usr/local/bin/
 	cp $GOPATH/bin/vuls /usr/local/bin/
+	cp $GOPATH/bin/go-msfdb /usr/local/bin/
 	echo "Done."; 
 }
 
