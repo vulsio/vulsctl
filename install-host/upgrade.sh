@@ -27,7 +27,7 @@ upgrade_vuls() {
 	make install;
 
 	echo -e "$RED""go-msfdb installing...""$NC";	
-	cd $GOPATH/src/github.com/takuzoo3868/go-exploitdb;
+	cd $GOPATH/src/github.com/takuzoo3868/go-msfdb;
 	git pull
 	make install;
 
