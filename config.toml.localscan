@@ -1,0 +1,6 @@
+[servers]
+
+[servers.localhost]
+host               = "127.0.0.1"
+port               = "local"
+scanMode           = ["fast"]
