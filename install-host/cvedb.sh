@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RELEASE=v0.9.0
+RELEASE=v0.12.0
 URL=https://github.com/future-architect/vuls/releases/download/${RELEASE}/cve.sqlite3.gz 
 
 if [ ! -e ./cve.sqlite3 ]; then
@@ -10,9 +10,9 @@ if [ ! -e ./cve.sqlite3 ]; then
 fi
 
 for i in `seq 2002 $(date +"%Y")`; do \
-    go-cve-dictionary fetchnvd -years $i; \
+    go-cve-dictionary fetchnvd $@ -years $i; \
 done
 
 for i in `seq 1998 $(date +"%Y")`; do \
-    go-cve-dictionary fetchjvn -years $i; \
+    go-cve-dictionary fetchjvn $@ -years $i; \
 done
