@@ -25,7 +25,7 @@ case "$target" in
 		;;
 	--ubuntu) docker run --rm -it \
 		-v $PWD:/vuls \
-		vuls/goval-dictionary fetch-ubuntu ${@} 16 18 
+		vuls/goval-dictionary fetch-ubuntu ${@} 16 18 20
 		;;
 	--alpine) docker run --rm -it \
 		-v $PWD:/vuls \
