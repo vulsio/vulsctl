@@ -4,13 +4,16 @@ RED='\033[0;31m';
 NC='\033[0m';
 
 ID=$(whoami);
+GO_INSTALLED=$(command -v go 2> /dev/null)
 
 go() {
-	if command -v go &> /dev/null
-	then
-		echo "Go is already installed."
-		return
-	fi
+        if [ ! $GO_INSTALLED == '' ] ; then
+                echo "Go is already installed."
+                #exit 2
+                return
+        fi
+        echo -e "\n${RED} [!] Go is not installed. Proceed to install...${NC}\n"
+        #exit 1
 
 	url="https://golang.org/dl/$1"
 	wget "${url}";
