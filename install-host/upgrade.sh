@@ -5,6 +5,26 @@ NC='\033[0m';
 
 ID=$(whoami);
 
+install_go() {
+	if command -v go &> /dev/null
+	then
+		echo "Go is already installed."
+		return
+	fi
+
+	echo -e "\n${RED} [!] Go is not installed. Proceed to install...${NC}\n"
+	url="https://golang.org/dl/$1"
+	wget "${url}";
+	echo -e "$RED""[!] Download successful : $url""$NC";
+	tar -C /usr/local -xzf $1
+	mkdir $HOME/go;
+	export GOROOT=/usr/local/go;
+	export GOPATH=$HOME/go;
+	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin;
+	echo "export GOROOT=/usr/local/go" >> "$HOME"/.profile;
+	echo "export GOPATH=$HOME/go" >> "$HOME"/.profile;
+	echo "export PATH=$PATH:$GOROOT/bin:$GOPATH/bin" >> "$HOME"/.profile;
+}
 
 upgrade_vuls() {
 	echo -e "$RED""go-cve-dictionary + goval-dictionary upgrading...""$NC";
@@ -53,12 +73,12 @@ if [ "x$(id -u)" != x0 ]; then
 	exit
 fi
 
-if [ -z "${GOPATH}" ]; then
-	echo "You might have to set GOPATH"
-	echo "Please run it again with GOPATH ENV Var"
-	echo
-	exit
-fi
+#if [ -z "${GOPATH}" ]; then
+#	echo "You might have to set GOPATH"
+#	echo "Please run it again with GOPATH ENV Var"
+#	echo
+#	exit
+#fi
 
 OPT="${@}"
 
@@ -69,7 +89,22 @@ if [ $distro = "" ]; then
 fi
 
 case $distro in
-	"ubuntu" | "pop" | "raspbian" | "rhel" | "centos")
+	"ubuntu" | "pop")
+		apt-get update
+		apt-get $OPT install sqlite git gcc make wget
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
+		install_go $filename
+		upgrade_vuls;;
+	"raspbian")
+		apt-get update
+		apt-get $OPT install sqlite git gcc make wget
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-armv6l.tar\.gz' | head -n 1)";
+		install_go $filename
+		upgrade_vuls;;
+	"rhel" | "centos")
+		yum $OPT install sqlite git gcc make wget
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
+		install_go $filename
 		upgrade_vuls;;
 	*) # we can add more install command for each distros.
 		echo "\"$distro\" is not supported distro, so please install packages manually." ;;
