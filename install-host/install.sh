@@ -6,7 +6,7 @@ NC='\033[0m';
 ID=$(whoami);
 
 go() {
-	if command -v go &> /dev/null
+	if type go > /dev/null 2>&1
 	then
 		echo "Go is already installed."
 		return
