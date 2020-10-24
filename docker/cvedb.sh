@@ -2,7 +2,7 @@
 
 docker pull vuls/go-cve-dictionary
 
-RELEASE=v0.12.0
+RELEASE=v0.13.1
 URL=https://github.com/future-architect/vuls/releases/download/${RELEASE}/cve.sqlite3.gz 
 
 if [ ! -e ./cve.sqlite3 ]; then
