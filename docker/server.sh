@@ -2,7 +2,7 @@
 
 docker pull vuls/vuls
 
-docker run --rm -it\
+docker run --rm -it \
     -v $HOME/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
     vuls/vuls configtest \
@@ -15,7 +15,7 @@ if [ $ret -ne 0 ]; then
 	exit 1
 fi
 
-docker run --rm -it\
+docker run --rm -dt \
     -v $HOME/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
     -p 5515:5515 \
