@@ -2,7 +2,7 @@
 
 docker pull vuls/vuls
 
-docker run --rm -it\
+docker run --rm -i \
     -v $PWD:/vuls \
     vuls/vuls report \
     -log-dir=/vuls/log \
