@@ -22,7 +22,7 @@ case "$target" in
 		goval-dictionary fetch-ubuntu ${@} 16 18 20
 		;;
 	--alpine) 
-		goval-dictionary fetch-alpine ${@} 3.3 3.4 3.5 3.6 3.7 3.8 3.9 3.10
+		goval-dictionary fetch-alpine ${@} 3.3 3.4 3.5 3.6 3.7 3.8 3.9 3.10 3.11
 		;;
 	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine]"
 		exit 1
