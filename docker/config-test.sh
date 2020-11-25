@@ -2,12 +2,10 @@
 
 docker pull vuls/vuls
 
-docker run --rm -i \
+docker run --rm -it \
+    -v $HOME/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
-    vuls/vuls report \
+    vuls/vuls configtest \
     -log-dir=/vuls/log \
-    -format-list \
     -config=/vuls/config.toml \
-    -refresh-cve \
-    $@
-
+    $@ 
