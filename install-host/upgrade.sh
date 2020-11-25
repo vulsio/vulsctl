@@ -69,7 +69,7 @@ if [ $distro = "" ]; then
 fi
 
 case $distro in
-	"ubuntu" | "pop" | "raspbian" | "rhel" | "centos")
+	"ubuntu" | "debian" | "pop" | "raspbian" | "rhel" | "centos")
 		upgrade_vuls;;
 	*) # we can add more install command for each distros.
 		echo "\"$distro\" is not supported distro, so please install packages manually." ;;
