@@ -24,24 +24,24 @@ upgrade_vuls() {
 	echo -e "$RED""go-exploitdb installing...""$NC";	
 	cd $GOPATH/src/github.com/mozqnet/go-exploitdb;
 	git pull
-	make install;
+	sudo make install;
 
 	echo -e "$RED""go-msfdb installing...""$NC";	
 	cd $GOPATH/src/github.com/takuzoo3868/go-msfdb;
 	git pull
-	make install;
+	sudo make install;
 
 	echo -e "$RED""Vuls installing...""$NC";
 	cd $GOPATH/src/github.com/future-architect/vuls;
 	git pull
-	make install; 
+	sudo make install; 
 
-	cp $GOPATH/bin/go-cve-dictionary /usr/local/bin/
-	cp $GOPATH/bin/go-exploitdb /usr/local/bin/
-	cp $GOPATH/bin/gost /usr/local/bin/
-	cp $GOPATH/bin/goval-dictionary /usr/local/bin/
-	cp $GOPATH/bin/vuls /usr/local/bin/
-	cp $GOPATH/bin/go-msfdb /usr/local/bin/
+	sudo cp $GOPATH/bin/go-cve-dictionary /usr/local/bin/
+	sudo cp $GOPATH/bin/go-exploitdb /usr/local/bin/
+	sudo cp $GOPATH/bin/gost /usr/local/bin/
+	sudo cp $GOPATH/bin/goval-dictionary /usr/local/bin/
+	sudo cp $GOPATH/bin/vuls /usr/local/bin/
+	sudo cp $GOPATH/bin/go-msfdb /usr/local/bin/
 	echo "Done."; 
 }
 
