@@ -4,6 +4,6 @@
 
 
 For details, see 
-- [Install with vulsct](https://vuls.io/docs/en/install-with-vulsctl.html)
+- [Install with vulsctl](https://vuls.io/docs/en/install-with-vulsctl.html)
 - [Install with vulsctl on host](https://vuls.io/docs/en/install-with-vulsctl-host.html)
 - [Tutorial](https://vuls.io/docs/en/tutorial-vulsctl-docker.html)
