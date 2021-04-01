@@ -1,9 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
 docker pull vuls/go-cve-dictionary
 
-RELEASE=v0.13.1
+RELEASE=v0.15.10
 URL=https://github.com/future-architect/vuls/releases/download/${RELEASE}/cve.sqlite3.gz 
+
+if [[ -z "${DOCKER_NETWORK}" ]]; then
+	DOCKER_NETWORK_OPT=""
+else
+	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
+fi
 
 if [ ! -e ./cve.sqlite3 ]; then
     echo "Fetching cve.sqlite3 from GitHub Vuls: ${URL}"
@@ -13,12 +19,8 @@ fi
 
 for i in `seq 2002 $(date +"%Y")`; do \
     docker run --rm -it \
+    ${DOCKER_NETWORK_OPT} \
     -v $PWD:/vuls \
     vuls/go-cve-dictionary fetchnvd $@ -years $i; \
 done
 
-for i in `seq 1998 $(date +"%Y")`; do \
-    docker run --rm -it \
-    -v $PWD:/vuls \
-    vuls/go-cve-dictionary fetchjvn $@ -years $i; \
-done
