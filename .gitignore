@@ -8,3 +8,4 @@ results/
 *config.toml
 .DS_Store
 .idea
+vuln-list

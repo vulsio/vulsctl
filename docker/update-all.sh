@@ -6,8 +6,9 @@
 ./oval.sh --ubuntu ${@} 
 ./oval.sh --alpine ${@} 
 ./oval.sh --oracle ${@} 
-./gost.sh --redhat ${@} 
-./gost.sh --debian ${@} 
+./gost.sh --redhat --batch-size 500 ${@} 
+./gost.sh --debian --batch-size 500 ${@} 
+./gost.sh --ubuntu --batch-size 15 ${@} 
 ./nvd.sh ${@} 
 ./exploitdb.sh ${@} 
 ./msfdb.sh ${@} 

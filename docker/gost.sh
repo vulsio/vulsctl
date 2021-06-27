@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 if [ $# -eq 0 ]; then
-	echo "specify [--redhat --debian]"
+	echo "specify [--redhat --debian --ubuntu]"
 	exit 1
 fi
 
@@ -27,10 +27,15 @@ case "$target" in
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} debian
 		;;
-	--*)  echo "specify [--redhat --debian]"
+	--ubuntu) docker run --rm -it \
+		-v ${PWD}:/vuls \
+		${DOCKER_NETWORK_OPT} \
+		vuls/gost fetch ${@} ubuntu
+		;;
+	--*)  echo "specify [--redhat --debian --ubuntu]"
 		exit 1
 	    ;;
-	*) echo "specify [--redhat --debian]"
+	*) echo "specify [--redhat --debian --ubuntu]"
 		exit 1
 	    ;;
 esac
