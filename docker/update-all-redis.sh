@@ -12,6 +12,7 @@ redis_url="redis://${redis_host}"
 ./oval.sh --oracle --dbtype redis --dbpath ${redis_url}/1 --debug ${@}
 ./gost.sh --redhat --dbtype redis --dbpath ${redis_url}/2 --debug ${@} 
 ./gost.sh --debian --dbtype redis --dbpath ${redis_url}/2 --debug ${@} 
+./gost.sh --ubuntu --dbtype redis --dbpath ${redis_url}/2 --debug ${@} 
 ./nvd.sh --dbtype redis --dbpath ${redis_url}/3 --debug ${@} 
 ./exploitdb.sh --dbtype redis --dbpath ${redis_url}/4 --debug ${@}
 ./msfdb.sh --dbtype redis --dbpath ${redis_url}/5 --debug ${@} 
