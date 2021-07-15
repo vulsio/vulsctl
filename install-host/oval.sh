@@ -1,7 +1,7 @@
 #! /bin/sh -
 
 if [ $# -eq 0 ]; then
-	echo "specify [--redhat --amazon --debian --ubuntu --alpine]"
+	echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle]"
 	exit 1
 fi
 
