@@ -30,16 +30,24 @@ install_go() {
 # Download latest Golang shell script
 # https://gist.github.com/n8henrie/1043443463a4a511acf98aaa4f8f0f69
 install_vuls() {
-	echo -e "$RED""go-cve-dictionary + goval-dictionary installing...""$NC";
+	echo -e "$RED""go-cve-dictionary installing...""$NC";
+	mkdir -p /var/log/go-cve-dictionary;
+	chown $ID /var/log/go-cve-dictionary
+	chmod 700 /var/log/go-cve-dictionary
+	mkdir -p $GOPATH/src/github.com/kotakanbe;
+	cd $GOPATH/src/github.com/kotakanbe;
+	git clone https://github.com/kotakanbe/go-cve-dictionary.git;
+	cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary; 
+	make install;
+	#ln -s $GOPATH/src/github.com/kotakanbe/go-cve-dictionary/cve.sqlite3 $HOME/cve.sqlite3;
+
+	echo -e "$RED""goval-dictionary installing...""$NC";
 	mkdir -p /var/log/vuls;
 	chown $ID /var/log/vuls
 	chmod 700 /var/log/vuls
 	mkdir -p $GOPATH/src/github.com/kotakanbe;
 	cd $GOPATH/src/github.com/kotakanbe;
-	git clone https://github.com/kotakanbe/go-cve-dictionary.git;
 	git clone https://github.com/kotakanbe/goval-dictionary.git;
-	cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary; 
-	make install;
 	cd $GOPATH/src/github.com/kotakanbe/goval-dictionary;
 	make install;
 	#ln -s $GOPATH/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3;
@@ -78,6 +86,9 @@ install_vuls() {
 	#ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
 
 	echo -e "$RED""Vuls installing...""$NC";
+	mkdir -p /var/log/vuls;
+	chown $ID /var/log/vuls
+	chmod 700 /var/log/vuls
 	mkdir -p $GOPATH/src/github.com/future-architect;
 	cd $GOPATH/src/github.com/future-architect;
 	git clone https://github.com/future-architect/vuls.git;
