@@ -10,6 +10,6 @@ fi
 
 docker run --rm -it \
     ${DOCKER_NETWORK_OPT} \
-    -v $PWD:/vuls \
+    -v $PWD:/go-msfdb \
     vuls/go-msfdb fetch msfdb ${@}
 
