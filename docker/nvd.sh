@@ -20,7 +20,7 @@ fi
 for i in `seq 2002 $(date +"%Y")`; do \
     docker run --rm -it \
     ${DOCKER_NETWORK_OPT} \
-    -v $PWD:/vuls \
+    -v $PWD:/go-cve-dictionary \
     vuls/go-cve-dictionary fetch nvd $@ --years $i; \
 done
 
