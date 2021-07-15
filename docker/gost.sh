@@ -18,17 +18,17 @@ docker pull vuls/gost
 
 case "$target" in
 	--redhat) docker run --rm -it \
-		-v ${PWD}:/vuls \
+		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} redhat
 		;;
 	--debian) docker run --rm -it \
-		-v ${PWD}:/vuls \
+		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} debian
 		;;
 	--ubuntu) docker run --rm -it \
-		-v ${PWD}:/vuls \
+		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} ubuntu
 		;;
