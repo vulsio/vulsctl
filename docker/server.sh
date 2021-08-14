@@ -25,5 +25,4 @@ docker run --rm -dt \
     -log-dir=/vuls/log \
     -config=/vuls/config.toml \
     -to-localfile \
-    -format-json \
     $@
