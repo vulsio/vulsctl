@@ -31,7 +31,7 @@ install_go() {
 # https://gist.github.com/n8henrie/1043443463a4a511acf98aaa4f8f0f69
 install_vuls() {
 	echo -e "$RED""go-cve-dictionary installing...""$NC";
-	mkdir -p /var/log/go-cve-dictionary;
+	mkdir -p /var/log/go-cve-dictionary
 	chown $ID /var/log/go-cve-dictionary
 	chmod 700 /var/log/go-cve-dictionary
 	mkdir -p $GOPATH/src/github.com/kotakanbe;
@@ -42,9 +42,9 @@ install_vuls() {
 	#ln -s $GOPATH/src/github.com/kotakanbe/go-cve-dictionary/cve.sqlite3 $HOME/cve.sqlite3;
 
 	echo -e "$RED""goval-dictionary installing...""$NC";
-	mkdir -p /var/log/vuls;
-	chown $ID /var/log/vuls
-	chmod 700 /var/log/vuls
+	mkdir -p /var/log/goval-dictionary
+	chown $ID /var/log/goval-dictionary
+	chmod 700 /var/log/goval-dictionary
 	mkdir -p $GOPATH/src/github.com/kotakanbe;
 	cd $GOPATH/src/github.com/kotakanbe;
 	git clone https://github.com/kotakanbe/goval-dictionary.git;
@@ -54,8 +54,8 @@ install_vuls() {
 
 	echo -e "$RED""gost(go-security-tracker) installing...""$NC";
 	mkdir -p /var/log/gost
-	chown $ID /var/log/gost;
-	chmod 700 /var/log/gost;
+	chown $ID /var/log/gost
+	chmod 700 /var/log/gost
 	mkdir -p $GOPATH/src/github.com/knqyf263;
 	cd $GOPATH/src/github.com/knqyf263;
 	git clone https://github.com/knqyf263/gost.git;
