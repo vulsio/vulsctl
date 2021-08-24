@@ -2,10 +2,6 @@
 
 docker pull vuls/go-cve-dictionary
 
-# TODO
-#RELEASE=v0.13.1
-#URL=https://github.com/future-architect/vuls/releases/download/${RELEASE}/cve.sqlite3.gz 
-
 if [[ -z "${DOCKER_NETWORK}" ]]; then
 	DOCKER_NETWORK_OPT=""
 else

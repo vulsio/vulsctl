@@ -14,5 +14,6 @@ redis_url="redis://${redis_host}"
 ./gost.sh --debian --dbtype redis --dbpath ${redis_url}/2 --debug ${@} 
 ./gost.sh --ubuntu --dbtype redis --dbpath ${redis_url}/2 --debug ${@} 
 ./nvd.sh --dbtype redis --dbpath ${redis_url}/3 --debug ${@} 
+./jvn.sh --dbtype redis --dbpath ${redis_url}/3 --debug ${@} 
 ./exploitdb.sh --dbtype redis --dbpath ${redis_url}/4 --debug ${@}
 ./msfdb.sh --dbtype redis --dbpath ${redis_url}/5 --debug ${@} 
