@@ -52,8 +52,6 @@ install_vuls() {
 	make install;
 	#ln -s $GOPATH/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3;
 
-	
-
 	echo -e "$RED""gost(go-security-tracker) installing...""$NC";
 	mkdir -p /var/log/gost
 	chown $ID /var/log/gost
@@ -88,6 +86,9 @@ install_vuls() {
 	#ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
 
 	echo -e "$RED""Vuls installing...""$NC";
+	mkdir -p /var/log/vuls;
+	chown $ID /var/log/vuls
+	chmod 700 /var/log/vuls
 	mkdir -p $GOPATH/src/github.com/future-architect;
 	cd $GOPATH/src/github.com/future-architect;
 	git clone https://github.com/future-architect/vuls.git;

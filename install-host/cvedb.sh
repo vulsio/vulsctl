@@ -10,9 +10,9 @@ if [ ! -e ./cve.sqlite3 ]; then
 fi
 
 for i in `seq 2002 $(date +"%Y")`; do \
-    go-cve-dictionary fetchnvd $@ -years $i; \
+    go-cve-dictionary fetch nvd $@ --years $i; \
 done
 
 for i in `seq 1998 $(date +"%Y")`; do \
-    go-cve-dictionary fetchjvn $@ -years $i; \
+    go-cve-dictionary fetch jvn $@ --years $i; \
 done
