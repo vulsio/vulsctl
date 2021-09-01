@@ -16,7 +16,7 @@ case "$target" in
 		goval-dictionary fetch amazon ${@} 
 		;;
 	--debian) 
-		goval-dictionary fetch debian ${@} 8 9 10
+		goval-dictionary fetch debian ${@} 8 9 10 11
 		;;
 	--ubuntu) 
 		goval-dictionary fetch ubuntu ${@} 16 18 20
