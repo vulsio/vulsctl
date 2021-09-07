@@ -8,7 +8,7 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
-docker run --rm -it \
+docker run --rm -i \
     ${DOCKER_NETWORK_OPT} \
     -v $PWD:/go-msfdb \
     vuls/go-msfdb fetch msfdb ${@}

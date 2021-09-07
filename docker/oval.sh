@@ -16,35 +16,35 @@ fi
 
 
 docker pull vuls/goval-dictionary
-docker run --rm -it vuls/goval-dictionary -v
+docker run --rm -i vuls/goval-dictionary -v
 
 case "$target" in
-	--redhat) docker run --rm -it \
+	--redhat) docker run --rm -i \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch redhat ${@} 6 7 8 
 		;;
-	--amazon) docker run --rm -it \
+	--amazon) docker run --rm -i \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch amazon ${@} 
 		;;
-	--debian) docker run --rm -it \
+	--debian) docker run --rm -i \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch debian ${@} 8 9 10
 		;;
-	--ubuntu) docker run --rm -it \
+	--ubuntu) docker run --rm -i \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch ubuntu ${@} 16 18 20
 		;;
-	--alpine) docker run --rm -it \
+	--alpine) docker run --rm -i \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch alpine ${@} 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 3.10 3.11 3.12 3.13 3.14
 		;;
-	--oracle) docker run --rm -it \
+	--oracle) docker run --rm -i \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch oracle ${@}
