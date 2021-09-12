@@ -8,10 +8,7 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
-for i in `seq 2002 $(date +"%Y")`; do \
-    docker run --rm -it \
+docker run --rm -it \
     ${DOCKER_NETWORK_OPT} \
     -v $PWD:/go-cve-dictionary \
-    vuls/go-cve-dictionary fetch nvd $@ --years $i; \
-done
-
+    vuls/go-cve-dictionary fetch nvd $@
