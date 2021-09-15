@@ -18,17 +18,17 @@ upgrade_vuls() {
 	make install;
 
 	echo -e "$RED""gost(go-security-tracker) installing...""$NC";
-	cd $GOPATH/src/github.com/knqyf263/gost;
+	cd $GOPATH/src/github.com/vulsio/gost;
 	git pull
 	make install;
 
 	echo -e "$RED""go-exploitdb installing...""$NC";	
-	cd $GOPATH/src/github.com/mozqnet/go-exploitdb;
+	cd $GOPATH/src/github.com/vulsio/go-exploitdb;
 	git pull
 	make install;
 
 	echo -e "$RED""go-msfdb installing...""$NC";	
-	cd $GOPATH/src/github.com/takuzoo3868/go-msfdb;
+	cd $GOPATH/src/github.com/vulsio/go-msfdb;
 	git pull
 	make install;
 
