@@ -8,12 +8,12 @@ ID=$(whoami);
 
 upgrade_vuls() {
 	echo -e "$RED""go-cve-dictionary upgrading...""$NC";
-	cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary; 
+	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary; 
 	git pull
 	make install;
 
 	echo -e "$RED""goval-dictionary upgrading...""$NC";
-	cd $GOPATH/src/github.com/kotakanbe/goval-dictionary;
+	cd $GOPATH/src/github.com/vulsio/goval-dictionary;
 	git pull
 	make install;
 

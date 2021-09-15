@@ -34,23 +34,23 @@ install_vuls() {
 	mkdir -p /var/log/go-cve-dictionary
 	chown $ID /var/log/go-cve-dictionary
 	chmod 700 /var/log/go-cve-dictionary
-	mkdir -p $GOPATH/src/github.com/kotakanbe;
-	cd $GOPATH/src/github.com/kotakanbe;
-	git clone https://github.com/kotakanbe/go-cve-dictionary.git;
-	cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary; 
+	mkdir -p $GOPATH/src/github.com/vulsio;
+	cd $GOPATH/src/github.com/vulsio;
+	git clone https://github.com/vulsio/go-cve-dictionary.git;
+	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary; 
 	make install;
-	#ln -s $GOPATH/src/github.com/kotakanbe/go-cve-dictionary/cve.sqlite3 $HOME/cve.sqlite3;
+	#ln -s $GOPATH/src/github.com/vulsio/go-cve-dictionary/cve.sqlite3 $HOME/cve.sqlite3;
 
 	echo -e "$RED""goval-dictionary installing...""$NC";
 	mkdir -p /var/log/goval-dictionary
 	chown $ID /var/log/goval-dictionary
 	chmod 700 /var/log/goval-dictionary
-	mkdir -p $GOPATH/src/github.com/kotakanbe;
-	cd $GOPATH/src/github.com/kotakanbe;
-	git clone https://github.com/kotakanbe/goval-dictionary.git;
-	cd $GOPATH/src/github.com/kotakanbe/goval-dictionary;
+	mkdir -p $GOPATH/src/github.com/vulsio;
+	cd $GOPATH/src/github.com/vulsio;
+	git clone https://github.com/vulsio/goval-dictionary.git;
+	cd $GOPATH/src/github.com/vulsio/goval-dictionary;
 	make install;
-	#ln -s $GOPATH/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3;
+	#ln -s $GOPATH/src/github.com/vulsio/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3;
 
 	echo -e "$RED""gost(go-security-tracker) installing...""$NC";
 	mkdir -p /var/log/gost
