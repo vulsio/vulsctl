@@ -14,3 +14,4 @@ docker run --rm -it \
 	${DOCKER_NETWORK_OPT} \
 	-v $PWD:/go-cve-dictionary \
 	vuls/go-cve-dictionary fetch jvn $@
+

@@ -34,56 +34,56 @@ install_vuls() {
 	mkdir -p /var/log/go-cve-dictionary
 	chown $ID /var/log/go-cve-dictionary
 	chmod 700 /var/log/go-cve-dictionary
-	mkdir -p $GOPATH/src/github.com/kotakanbe;
-	cd $GOPATH/src/github.com/kotakanbe;
-	git clone https://github.com/kotakanbe/go-cve-dictionary.git;
-	cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary; 
+	mkdir -p $GOPATH/src/github.com/vulsio;
+	cd $GOPATH/src/github.com/vulsio;
+	git clone https://github.com/vulsio/go-cve-dictionary.git;
+	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary; 
 	make install;
-	#ln -s $GOPATH/src/github.com/kotakanbe/go-cve-dictionary/cve.sqlite3 $HOME/cve.sqlite3;
+	#ln -s $GOPATH/src/github.com/vulsio/go-cve-dictionary/cve.sqlite3 $HOME/cve.sqlite3;
 
 	echo -e "$RED""goval-dictionary installing...""$NC";
 	mkdir -p /var/log/goval-dictionary
 	chown $ID /var/log/goval-dictionary
 	chmod 700 /var/log/goval-dictionary
-	mkdir -p $GOPATH/src/github.com/kotakanbe;
-	cd $GOPATH/src/github.com/kotakanbe;
-	git clone https://github.com/kotakanbe/goval-dictionary.git;
-	cd $GOPATH/src/github.com/kotakanbe/goval-dictionary;
+	mkdir -p $GOPATH/src/github.com/vulsio;
+	cd $GOPATH/src/github.com/vulsio;
+	git clone https://github.com/vulsio/goval-dictionary.git;
+	cd $GOPATH/src/github.com/vulsio/goval-dictionary;
 	make install;
-	#ln -s $GOPATH/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3;
+	#ln -s $GOPATH/src/github.com/vulsio/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3;
 
 	echo -e "$RED""gost(go-security-tracker) installing...""$NC";
 	mkdir -p /var/log/gost
 	chown $ID /var/log/gost
 	chmod 700 /var/log/gost
-	mkdir -p $GOPATH/src/github.com/knqyf263;
-	cd $GOPATH/src/github.com/knqyf263;
-	git clone https://github.com/knqyf263/gost.git;
+	mkdir -p $GOPATH/src/github.com/vulsio;
+	cd $GOPATH/src/github.com/vulsio;
+	git clone https://github.com/vulsio/gost.git;
 	cd gost;
 	make install;
-	#ln -s $GOPATH/src/github.com/knqyf263/gost/gost.sqlite3 $HOME/gost.sqlite3;
+	#ln -s $GOPATH/src/github.com/vulsio/gost/gost.sqlite3 $HOME/gost.sqlite3;
 
 	echo -e "$RED""go-exploitdb installing...""$NC";	
 	mkdir -p /var/log/go-exploitdb
 	chown $ID /var/log/go-exploitdb
 	chmod 700 /var/log/go-exploitdb
-	mkdir -p $GOPATH/src/github.com/mozqnet;
-	cd $GOPATH/src/github.com/mozqnet;
-	git clone https://github.com/mozqnet/go-exploitdb.git;
+	mkdir -p $GOPATH/src/github.com/vulsio;
+	cd $GOPATH/src/github.com/vulsio;
+	git clone https://github.com/vulsio/go-exploitdb.git;
 	cd go-exploitdb;
 	make install;
-	#ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
+	#ln -s $GOPATH/src/github.com/vulsio/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
 
 	echo -e "$RED""go-msfdb installing...""$NC";	
 	mkdir -p /var/log/go-msfdb
 	chown $ID /var/log/go-msfdb
 	chmod 700 /var/log/go-msfdb
-	mkdir -p $GOPATH/src/github.com/takuzoo3868
-	cd $GOPATH/src/github.com/takuzoo3868/
-	git clone https://github.com/takuzoo3868/go-msfdb.git
+	mkdir -p $GOPATH/src/github.com/vulsio
+	cd $GOPATH/src/github.com/vulsio/
+	git clone https://github.com/vulsio/go-msfdb.git
 	cd go-msfdb;
 	make install;
-	#ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
+	#ln -s $GOPATH/src/github.com/vulsio/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
 
 	echo -e "$RED""Vuls installing...""$NC";
 	mkdir -p /var/log/vuls;
