@@ -15,6 +15,7 @@ else
 fi
 
 docker pull vuls/gost
+docker run --rm -it vuls/gost version
 
 case "$target" in
 	--redhat) docker run --rm -it \

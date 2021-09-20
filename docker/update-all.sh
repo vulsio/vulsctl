@@ -10,5 +10,6 @@
 ./gost.sh --debian --batch-size 500 ${@} 
 ./gost.sh --ubuntu --batch-size 15 ${@} 
 ./nvd.sh ${@} 
+./jvn.sh ${@} 
 ./exploitdb.sh ${@} 
 ./msfdb.sh ${@} 

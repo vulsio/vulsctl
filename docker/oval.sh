@@ -16,7 +16,7 @@ fi
 
 
 docker pull vuls/goval-dictionary
-docker run --rm -it vuls/goval-dictionary -v
+docker run --rm -it vuls/goval-dictionary version
 
 case "$target" in
 	--redhat) docker run --rm -it \

@@ -8,6 +8,8 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
+docker run --rm -it vuls/go-msfdb version
+
 docker run --rm -it \
     ${DOCKER_NETWORK_OPT} \
     -v $PWD:/go-msfdb \
