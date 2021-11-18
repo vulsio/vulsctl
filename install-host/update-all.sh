@@ -12,3 +12,4 @@
 ./cvedb.sh && \
 ./exploitdb.sh && \
 ./msfdb.sh
+./kev.sh
