@@ -13,5 +13,5 @@ docker run --rm -it vuls/go-kev version
 docker run --rm -it \
     ${DOCKER_NETWORK_OPT} \
     -v $PWD:/go-kev \
-    vuls/go-kev fetch kev ${@}
+    vuls/go-kev fetch kevuln ${@}
 
