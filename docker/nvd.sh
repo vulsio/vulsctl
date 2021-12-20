@@ -15,10 +15,9 @@ else
     t="-t"
 fi
 
-for i in `seq 2002 $(date +"%Y")`; do \
-    docker run --rm -i $t \
+docker run --rm -i $t vuls/go-cve-dictionary version
+
+docker run --rm -i $t \
     ${DOCKER_NETWORK_OPT} \
     -v $PWD:/go-cve-dictionary \
-    vuls/go-cve-dictionary fetch nvd $@ --years $i; \
-done
-
+    vuls/go-cve-dictionary fetch nvd $@

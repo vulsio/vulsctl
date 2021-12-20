@@ -15,6 +15,8 @@ else
     t="-t"
 fi
 
+docker run --rm -i $t vuls/go-msfdb version
+
 docker run --rm -i $t \
     ${DOCKER_NETWORK_OPT} \
     -v $PWD:/go-msfdb \

@@ -23,7 +23,7 @@ fi
 
 
 docker pull vuls/goval-dictionary
-docker run --rm -i vuls/goval-dictionary -v
+docker run --rm -i $t vuls/goval-dictionary version
 
 case "$target" in
 	--redhat) docker run --rm -i $t \
@@ -39,7 +39,7 @@ case "$target" in
 	--debian) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch debian ${@} 8 9 10
+		vuls/goval-dictionary fetch debian ${@} 8 9 10 11
 		;;
 	--ubuntu) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \

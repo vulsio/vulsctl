@@ -8,27 +8,32 @@ ID=$(whoami);
 
 upgrade_vuls() {
 	echo -e "$RED""go-cve-dictionary upgrading...""$NC";
-	cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary; 
+	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary; 
 	git pull
 	make install;
 
 	echo -e "$RED""goval-dictionary upgrading...""$NC";
-	cd $GOPATH/src/github.com/kotakanbe/goval-dictionary;
+	cd $GOPATH/src/github.com/vulsio/goval-dictionary;
 	git pull
 	make install;
 
 	echo -e "$RED""gost(go-security-tracker) installing...""$NC";
-	cd $GOPATH/src/github.com/knqyf263/gost;
+	cd $GOPATH/src/github.com/vulsio/gost;
 	git pull
 	make install;
 
 	echo -e "$RED""go-exploitdb installing...""$NC";	
-	cd $GOPATH/src/github.com/mozqnet/go-exploitdb;
+	cd $GOPATH/src/github.com/vulsio/go-exploitdb;
 	git pull
 	make install;
 
 	echo -e "$RED""go-msfdb installing...""$NC";	
-	cd $GOPATH/src/github.com/takuzoo3868/go-msfdb;
+	cd $GOPATH/src/github.com/vulsio/go-msfdb;
+	git pull
+	make install;
+
+	echo -e "$RED""go-kev installing...""$NC";	
+	cd $GOPATH/src/github.com/vulsio/go-kev;
 	git pull
 	make install;
 
@@ -38,11 +43,12 @@ upgrade_vuls() {
 	make install; 
 
 	cp $GOPATH/bin/go-cve-dictionary /usr/local/bin/
-	cp $GOPATH/bin/go-exploitdb /usr/local/bin/
-	cp $GOPATH/bin/gost /usr/local/bin/
 	cp $GOPATH/bin/goval-dictionary /usr/local/bin/
-	cp $GOPATH/bin/vuls /usr/local/bin/
+	cp $GOPATH/bin/gost /usr/local/bin/
+	cp $GOPATH/bin/go-exploitdb /usr/local/bin/
 	cp $GOPATH/bin/go-msfdb /usr/local/bin/
+	cp $GOPATH/bin/go-kev /usr/local/bin/
+	cp $GOPATH/bin/vuls /usr/local/bin/
 	echo "Done."; 
 }
 
