@@ -19,10 +19,10 @@ case "$target" in
 		goval-dictionary fetch debian ${@} 8 9 10 11
 		;;
 	--ubuntu) 
-		goval-dictionary fetch ubuntu ${@} 16 18 20
+		goval-dictionary fetch ubuntu ${@} 14.04 16.04 18.04 19.10 20.04 20.10 21.04 21.10
 		;;
 	--alpine) 
-		goval-dictionary fetch alpine ${@} 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 3.10 3.11 3.12 3.13 3.14
+		goval-dictionary fetch alpine ${@} 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 3.10 3.11 3.12 3.13 3.14 3.15
 		;;
 	--oracle)
 		goval-dictionary fetch oracle ${@}

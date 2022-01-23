@@ -37,7 +37,7 @@ case "$target" in
 	--ubuntu) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch ubuntu ${@} 16 18 20
+		vuls/goval-dictionary fetch ubuntu ${@} 14.04 16.04 18.04 19.10 20.04 20.10 21.04 21.10
 		;;
 	--alpine) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
