@@ -37,7 +37,7 @@ install_vuls() {
 	mkdir -p $GOPATH/src/github.com/vulsio;
 	cd $GOPATH/src/github.com/vulsio;
 	git clone https://github.com/vulsio/go-cve-dictionary.git;
-	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary; 
+	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary;
 	make install;
 	#ln -s $GOPATH/src/github.com/vulsio/go-cve-dictionary/cve.sqlite3 $HOME/cve.sqlite3;
 
@@ -63,7 +63,7 @@ install_vuls() {
 	make install;
 	#ln -s $GOPATH/src/github.com/vulsio/gost/gost.sqlite3 $HOME/gost.sqlite3;
 
-	echo -e "$RED""go-exploitdb installing...""$NC";	
+	echo -e "$RED""go-exploitdb installing...""$NC";
 	mkdir -p /var/log/go-exploitdb
 	chown $ID /var/log/go-exploitdb
 	chmod 700 /var/log/go-exploitdb
@@ -74,7 +74,7 @@ install_vuls() {
 	make install;
 	#ln -s $GOPATH/src/github.com/vulsio/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3;
 
-	echo -e "$RED""go-msfdb installing...""$NC";	
+	echo -e "$RED""go-msfdb installing...""$NC";
 	mkdir -p /var/log/go-msfdb
 	chown $ID /var/log/go-msfdb
 	chmod 700 /var/log/go-msfdb
@@ -85,7 +85,7 @@ install_vuls() {
 	make install;
 	#ln -s $GOPATH/src/github.com/vulsio/go-msfdb/go-msfdb.sqlite3 $HOME/go-msfdb.sqlite3;
 
-	echo -e "$RED""go-kev installing...""$NC";	
+	echo -e "$RED""go-kev installing...""$NC";
 	mkdir -p /var/log/go-kev
 	chown $ID /var/log/go-kev
 	chmod 700 /var/log/go-kev
@@ -94,7 +94,7 @@ install_vuls() {
 	git clone https://github.com/vulsio/go-kev.git
 	cd go-kev;
 	make install;
-	#ln -s $GOPATH/src/github.com/vulsio/go-kev/go-kev.sqlite3 $HOME/go-kev.sqlite3;	
+	#ln -s $GOPATH/src/github.com/vulsio/go-kev/go-kev.sqlite3 $HOME/go-kev.sqlite3;
 
 	echo -e "$RED""Vuls installing...""$NC";
 	mkdir -p /var/log/vuls;
@@ -104,7 +104,7 @@ install_vuls() {
 	cd $GOPATH/src/github.com/future-architect;
 	git clone https://github.com/future-architect/vuls.git;
 	cd vuls;
-	make install; 
+	make install;
 
 	cp $GOPATH/bin/go-cve-dictionary /usr/local/bin/
 	cp $GOPATH/bin/goval-dictionary /usr/local/bin/
@@ -113,7 +113,7 @@ install_vuls() {
 	cp $GOPATH/bin/go-msfdb /usr/local/bin/
 	cp $GOPATH/bin/go-kev /usr/local/bin/
 	cp $GOPATH/bin/vuls /usr/local/bin/
-	echo "Done."; 
+	echo "Done.";
 }
 
 # https://github.com/namhyung/uftrace/blob/master/misc/install-deps.sh
@@ -147,6 +147,11 @@ case $distro in
 		install_vuls;;
 	"rhel" | "centos")
 		yum $OPT install sqlite git gcc make wget
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
+		install_go $filename
+		install_vuls;;
+	"fedora")
+		dnf $OPT install sqlite git gcc make wget
 		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
 		install_go $filename
 		install_vuls;;

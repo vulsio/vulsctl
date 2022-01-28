@@ -6,6 +6,7 @@
 ./oval.sh --ubuntu && \
 ./oval.sh --alpine && \
 ./oval.sh --oracle && \
+./oval.sh --fedora && \
 ./gost.sh --redhat --batch-size 500&& \
 ./gost.sh --debian --batch-size 500 && \
 ./gost.sh --ubuntu --batch-size 15 && \

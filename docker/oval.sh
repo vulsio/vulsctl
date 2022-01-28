@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
-	echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle]"
+	echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
 	exit 1
 fi
 
@@ -22,12 +22,12 @@ case "$target" in
 	--redhat) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch redhat ${@} 6 7 8 
+		vuls/goval-dictionary fetch redhat ${@} 6 7 8
 		;;
 	--amazon) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch amazon ${@} 
+		vuls/goval-dictionary fetch amazon ${@}
 		;;
 	--debian) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
@@ -49,10 +49,15 @@ case "$target" in
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch oracle ${@}
 		;;
-	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle]"
+	--fedora) docker run --rm -it \
+		${DOCKER_NETWORK_OPT} \
+		-v $PWD:/goval-dictionary \
+		vuls/goval-dictionary fetch fedora ${@} 33 34 35
+		;;
+	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
 		exit 1
 		;;
-	*) echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle]"
+	*) echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
 		exit 1
 		;;
 esac

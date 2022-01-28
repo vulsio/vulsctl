@@ -8,7 +8,7 @@ ID=$(whoami);
 
 upgrade_vuls() {
 	echo -e "$RED""go-cve-dictionary upgrading...""$NC";
-	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary; 
+	cd $GOPATH/src/github.com/vulsio/go-cve-dictionary;
 	git pull
 	make install;
 
@@ -22,17 +22,17 @@ upgrade_vuls() {
 	git pull
 	make install;
 
-	echo -e "$RED""go-exploitdb installing...""$NC";	
+	echo -e "$RED""go-exploitdb installing...""$NC";
 	cd $GOPATH/src/github.com/vulsio/go-exploitdb;
 	git pull
 	make install;
 
-	echo -e "$RED""go-msfdb installing...""$NC";	
+	echo -e "$RED""go-msfdb installing...""$NC";
 	cd $GOPATH/src/github.com/vulsio/go-msfdb;
 	git pull
 	make install;
 
-	echo -e "$RED""go-kev installing...""$NC";	
+	echo -e "$RED""go-kev installing...""$NC";
 	cd $GOPATH/src/github.com/vulsio/go-kev;
 	git pull
 	make install;
@@ -40,7 +40,7 @@ upgrade_vuls() {
 	echo -e "$RED""Vuls installing...""$NC";
 	cd $GOPATH/src/github.com/future-architect/vuls;
 	git pull
-	make install; 
+	make install;
 
 	cp $GOPATH/bin/go-cve-dictionary /usr/local/bin/
 	cp $GOPATH/bin/goval-dictionary /usr/local/bin/
@@ -49,7 +49,7 @@ upgrade_vuls() {
 	cp $GOPATH/bin/go-msfdb /usr/local/bin/
 	cp $GOPATH/bin/go-kev /usr/local/bin/
 	cp $GOPATH/bin/vuls /usr/local/bin/
-	echo "Done."; 
+	echo "Done.";
 }
 
 # https://github.com/namhyung/uftrace/blob/master/misc/install-deps.sh
@@ -76,7 +76,7 @@ if [ $distro = "" ]; then
 fi
 
 case $distro in
-	"ubuntu" | "debian" | "pop" | "raspbian" | "rhel" | "centos")
+	"ubuntu" | "debian" | "pop" | "raspbian" | "rhel" | "centos" | "fedora")
 		upgrade_vuls;;
 	*) # we can add more install command for each distros.
 		echo "\"$distro\" is not supported distro, so please install packages manually." ;;
