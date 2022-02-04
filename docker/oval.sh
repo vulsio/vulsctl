@@ -43,7 +43,7 @@ case "$target" in
 	--alpine) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch alpine ${@} 3.12 3.13 3.14
+		vuls/goval-dictionary fetch alpine ${@} 3.12 3.13 3.14 3.15
 		;;
 	--oracle) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
