@@ -28,7 +28,7 @@ case "$target" in
 		goval-dictionary fetch oracle ${@}
 		;;
 	--fedora)
-		goval-dictionary fetch fedora ${@} 33 34 35
+		goval-dictionary fetch fedora ${@} 34 35
 		;;
 	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
 		exit 1

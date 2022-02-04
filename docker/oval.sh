@@ -52,7 +52,7 @@ case "$target" in
 	--fedora) docker run --rm -it \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch fedora ${@} 33 34 35
+		vuls/goval-dictionary fetch fedora ${@} 34 35
 		;;
 	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
 		exit 1
