@@ -20,6 +20,7 @@ install_go() {
 	wget "${url}";
 	echo -e "$RED""[!] Download successful : $url""$NC";
 	tar -C /usr/local -xzf $1
+	rm $1
 	mkdir -p $HOME/go;
 	echo "export GOROOT=/usr/local/go" >> "$HOME"/.profile;
 	echo "export GOPATH=$HOME/go" >> "$HOME"/.profile;
