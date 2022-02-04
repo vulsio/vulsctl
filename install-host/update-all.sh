@@ -7,9 +7,9 @@
 ./oval.sh --alpine && \
 ./oval.sh --oracle && \
 ./oval.sh --fedora && \
-./gost.sh --redhat --batch-size 500&& \
-./gost.sh --debian --batch-size 500 && \
-./gost.sh --ubuntu --batch-size 15 && \
+./gost.sh --redhat && \
+./gost.sh --debian && \
+./gost.sh --ubuntu && \
 ./cvedb.sh && \
 ./exploitdb.sh && \
 ./msfdb.sh
