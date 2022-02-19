@@ -55,6 +55,21 @@ case "$target" in
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch fedora ${@} 34 35
 		;;
+	--suse) docker run --rm -it \
+		${DOCKER_NETWORK_OPT} \
+		-v $PWD:/goval-dictionary \
+		vuls/goval-dictionary fetch suse --suse-type suse-enterprise-server ${@} 12 15
+
+		docker run --rm -it \
+		${DOCKER_NETWORK_OPT} \
+		-v $PWD:/goval-dictionary \
+		vuls/goval-dictionary fetch suse --suse-type opensuse tumbleweed
+
+		docker run --rm -it \
+		${DOCKER_NETWORK_OPT} \
+		-v $PWD:/goval-dictionary \
+		vuls/goval-dictionary fetch suse --suse-type opensuse-leap 15.3
+		;;
 	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
 		exit 1
 		;;
