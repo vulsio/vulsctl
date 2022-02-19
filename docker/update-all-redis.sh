@@ -11,6 +11,7 @@ redis_url="redis://${redis_host}"
 ./oval.sh --alpine --dbtype redis --dbpath ${redis_url}/1 ${@}
 ./oval.sh --oracle --dbtype redis --dbpath ${redis_url}/1 ${@}
 ./oval.sh --fedora --dbtype redis --dbpath ${redis_url}/1 ${@}
+./oval.sh --suse   --dbtype redis --dbpath ${redis_url}/1 ${@}
 ./gost.sh --redhat --dbtype redis --dbpath ${redis_url}/2 ${@}
 ./gost.sh --debian --dbtype redis --dbpath ${redis_url}/2 ${@}
 ./gost.sh --ubuntu --dbtype redis --dbpath ${redis_url}/2 ${@}
