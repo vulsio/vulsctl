@@ -14,21 +14,28 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
+if [[ $(tty) =~ "not a tty" ]]
+then
+    t=''
+else
+    t="-t"
+fi
+
 docker pull vuls/gost
 docker run --rm -it vuls/gost version
 
 case "$target" in
-	--redhat) docker run --rm -it \
+	--redhat) docker run --rm -i $t \
 		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} redhat
 		;;
-	--debian) docker run --rm -it \
+	--debian) docker run --rm -i $t \
 		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} debian
 		;;
-	--ubuntu) docker run --rm -it \
+	--ubuntu) docker run --rm -i $t \
 		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} ubuntu

@@ -14,38 +14,45 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
+if [[ $(tty) =~ "not a tty" ]]
+then
+    t=''
+else
+    t="-t"
+fi
+
 
 docker pull vuls/goval-dictionary
-docker run --rm -it vuls/goval-dictionary version
+docker run --rm -i $t vuls/goval-dictionary version
 
 # NOTE: fetches oval of the OS with security support enabled.
 case "$target" in
-	--redhat) docker run --rm -it \
+	--redhat) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch redhat ${@} 6 7 8
 		;;
-	--amazon) docker run --rm -it \
+	--amazon) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch amazon ${@}
 		;;
-	--debian) docker run --rm -it \
+	--debian) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch debian ${@} 9 10 11
 		;;
-	--ubuntu) docker run --rm -it \
+	--ubuntu) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch ubuntu ${@} 14 16 18 20
 		;;
-	--alpine) docker run --rm -it \
+	--alpine) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch alpine ${@} 3.12 3.13 3.14 3.15
 		;;
-	--oracle) docker run --rm -it \
+	--oracle) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
 		vuls/goval-dictionary fetch oracle ${@}
