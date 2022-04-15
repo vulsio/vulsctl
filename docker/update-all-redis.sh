@@ -20,3 +20,4 @@ redis_url="redis://${redis_host}"
 ./exploitdb.sh --dbtype redis --dbpath ${redis_url}/4 ${@}
 ./msfdb.sh --dbtype redis --dbpath ${redis_url}/5 ${@}
 ./kev.sh --dbtype redis --dbpath ${redis_url}/6 ${@}
+./cti.sh --dbtype redis --dbpath ${redis_url}/7 ${@}

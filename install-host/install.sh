@@ -97,6 +97,17 @@ install_vuls() {
 	make install;
 	#ln -s $GOPATH/src/github.com/vulsio/go-kev/go-kev.sqlite3 $HOME/go-kev.sqlite3;
 
+	echo -e "$RED""go-cti installing...""$NC";
+	mkdir -p /var/log/go-cti
+	chown $ID /var/log/go-cti
+	chmod 700 /var/log/go-cti
+	mkdir -p $GOPATH/src/github.com/vulsio
+	cd $GOPATH/src/github.com/vulsio/
+	git clone https://github.com/vulsio/go-cti.git
+	cd go-cti;
+	make install;
+	#ln -s $GOPATH/src/github.com/vulsio/go-cti/go-cti.sqlite3 $HOME/go-cti.sqlite3;
+
 	echo -e "$RED""Vuls installing...""$NC";
 	mkdir -p /var/log/vuls;
 	chown $ID /var/log/vuls
@@ -113,6 +124,7 @@ install_vuls() {
 	cp $GOPATH/bin/go-exploitdb /usr/local/bin/
 	cp $GOPATH/bin/go-msfdb /usr/local/bin/
 	cp $GOPATH/bin/go-kev /usr/local/bin/
+	cp $GOPATH/bin/go-cti /usr/local/bin/
 	cp $GOPATH/bin/vuls /usr/local/bin/
 	echo "Done.";
 }

@@ -16,3 +16,4 @@
 ./exploitdb.sh ${@}
 ./msfdb.sh ${@}
 ./kev.sh ${@}
+./cti.sh ${@}

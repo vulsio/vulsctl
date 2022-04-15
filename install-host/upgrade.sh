@@ -37,6 +37,11 @@ upgrade_vuls() {
 	git pull
 	make install;
 
+	echo -e "$RED""go-cti installing...""$NC";
+	cd $GOPATH/src/github.com/vulsio/go-cti;
+	git pull
+	make install;
+
 	echo -e "$RED""Vuls installing...""$NC";
 	cd $GOPATH/src/github.com/future-architect/vuls;
 	git pull
@@ -48,6 +53,7 @@ upgrade_vuls() {
 	cp $GOPATH/bin/go-exploitdb /usr/local/bin/
 	cp $GOPATH/bin/go-msfdb /usr/local/bin/
 	cp $GOPATH/bin/go-kev /usr/local/bin/
+	cp $GOPATH/bin/go-cti /usr/local/bin/
 	cp $GOPATH/bin/vuls /usr/local/bin/
 	echo "Done.";
 }

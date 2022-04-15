@@ -12,5 +12,6 @@
 ./gost.sh --ubuntu && \
 ./cvedb.sh && \
 ./exploitdb.sh && \
-./msfdb.sh
-./kev.sh
+./msfdb.sh && \
+./kev.sh && \
+./cti.sh
