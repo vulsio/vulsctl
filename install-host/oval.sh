@@ -11,7 +11,7 @@ shift
 # NOTE: fetches oval of the OS with security support enabled.
 case "$target" in
 	--redhat)
-		goval-dictionary fetch redhat ${@} 6 7 8
+		goval-dictionary fetch redhat ${@} 6 7 8 9
 		;;
 	--amazon)
 		goval-dictionary fetch amazon ${@}

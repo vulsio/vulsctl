@@ -30,7 +30,7 @@ case "$target" in
 	--redhat) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch redhat ${@} 6 7 8
+		vuls/goval-dictionary fetch redhat ${@} 6 7 8 9
 		;;
 	--amazon) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
