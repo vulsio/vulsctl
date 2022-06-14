@@ -23,7 +23,7 @@ case "$target" in
 		goval-dictionary fetch ubuntu ${@} 14 16 18 20 22
 		;;
 	--alpine)
-		goval-dictionary fetch alpine ${@} 3.12 3.13 3.14 3.15
+		goval-dictionary fetch alpine ${@} 3.13 3.14 3.15 3.16
 		;;
 	--oracle)
 		goval-dictionary fetch oracle ${@}
