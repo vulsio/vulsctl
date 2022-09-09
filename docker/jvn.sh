@@ -8,9 +8,16 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
-docker run --rm -it vuls/go-cve-dictionary version
+if [[ $(tty) =~ "not a tty" ]]
+then
+    t=''
+else
+    t="-t"
+fi
 
-docker run --rm -it \
+docker run --rm -i $t vuls/go-cve-dictionary version
+
+docker run --rm -i $t \
 	${DOCKER_NETWORK_OPT} \
 	-v $PWD:/go-cve-dictionary \
 	vuls/go-cve-dictionary fetch jvn $@
