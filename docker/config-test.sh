@@ -2,7 +2,14 @@
 
 docker pull vuls/vuls
 
-docker run --rm -it \
+if [[ $(tty) =~ "not a tty" ]]
+then
+    t=''
+else
+    t="-t"
+fi
+
+docker run --rm -i $t \
     -v $HOME/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
     vuls/vuls configtest \
