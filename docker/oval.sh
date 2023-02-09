@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
-	echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
+	echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora --suse]"
 	exit 1
 fi
 
@@ -40,7 +40,7 @@ case "$target" in
 	--debian) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch debian ${@} 9 10 11
+		vuls/goval-dictionary fetch debian ${@} 10 11
 		;;
 	--ubuntu) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
@@ -50,7 +50,7 @@ case "$target" in
 	--alpine) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch alpine ${@} 3.13 3.14 3.15 3.16
+		vuls/goval-dictionary fetch alpine ${@} 3.14 3.15 3.16 3.17
 		;;
 	--oracle) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
@@ -75,12 +75,12 @@ case "$target" in
 		docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch suse --suse-type opensuse-leap 15.3
+		vuls/goval-dictionary fetch suse --suse-type opensuse-leap 15.4
 		;;
-	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
+	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora --suse]"
 		exit 1
 		;;
-	*) echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora]"
+	*) echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora --suse]"
 		exit 1
 		;;
 esac

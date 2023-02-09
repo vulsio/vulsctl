@@ -7,6 +7,7 @@
 ./oval.sh --alpine && \
 ./oval.sh --oracle && \
 ./oval.sh --fedora && \
+./oval.sh --suse && \
 ./gost.sh --redhat && \
 ./gost.sh --debian && \
 ./gost.sh --ubuntu && \
