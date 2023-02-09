@@ -11,6 +11,7 @@
 ./gost.sh --redhat && \
 ./gost.sh --debian && \
 ./gost.sh --ubuntu && \
+./gost.sh --microsoft && \
 ./cvedb.sh && \
 ./exploitdb.sh && \
 ./msfdb.sh && \
