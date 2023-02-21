@@ -1,7 +1,7 @@
 #! /bin/sh -
 
 if [ $# -eq 0 ]; then
-	echo "specify [--redhat --debian --ubuntu]"
+	echo "specify [--redhat --debian --ubuntu --microsoft]"
 	exit 1
 fi
 
@@ -18,10 +18,12 @@ case "$target" in
 	--ubuntu) 
 		gost fetch ${@} ubuntu
 		;;
-	--*)  echo "specify [--redhat --debian --ubuntu]"
+	--microsoft)
+		gost fetch ${@} microsoft
+	--*)  echo "specify [--redhat --debian --ubuntu --microsoft]"
 		exit 1
 	    ;;
-	*) echo "specify [--redhat --debian --ubuntu]"
+	*) echo "specify [--redhat --debian --ubuntu --microsoft]"
 		exit 1
 	    ;;
 esac
