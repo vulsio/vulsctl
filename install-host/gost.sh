@@ -20,6 +20,7 @@ case "$target" in
 		;;
 	--microsoft)
 		gost fetch ${@} microsoft
+		;;
 	--*)  echo "specify [--redhat --debian --ubuntu --microsoft]"
 		exit 1
 	    ;;
