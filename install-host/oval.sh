@@ -14,7 +14,7 @@ case "$target" in
 		goval-dictionary fetch redhat ${@} 6 7 8 9
 		;;
 	--amazon)
-		goval-dictionary fetch amazon ${@}
+		goval-dictionary fetch amazon ${@} 2 2022 2023
 		;;
 	--debian)
 		goval-dictionary fetch debian ${@} 10 11
@@ -26,7 +26,7 @@ case "$target" in
 		goval-dictionary fetch alpine ${@} 3.14 3.15 3.16 3.17
 		;;
 	--oracle)
-		goval-dictionary fetch oracle ${@}
+		goval-dictionary fetch oracle ${@} 7 8 9
 		;;
 	--fedora)
 		goval-dictionary fetch fedora ${@} 34 35

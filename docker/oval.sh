@@ -35,7 +35,7 @@ case "$target" in
 	--amazon) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch amazon ${@}
+		vuls/goval-dictionary fetch amazon ${@} 2 2022 2023
 		;;
 	--debian) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
@@ -55,7 +55,7 @@ case "$target" in
 	--oracle) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch oracle ${@}
+		vuls/goval-dictionary fetch oracle ${@} 7 8 9
 		;;
 	--fedora) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
