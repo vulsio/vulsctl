@@ -148,13 +148,13 @@ fi
 case $distro in
 	"ubuntu" | "debian" | "pop")
 		apt-get update
-		apt-get $OPT install sqlite git gcc make wget
+		apt-get $OPT install sqlite3 git gcc make wget
 		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
 		install_go $filename
 		install_vuls;;
 	"raspbian")
 		apt-get update
-		apt-get $OPT install sqlite git gcc make wget
+		apt-get $OPT install sqlite3 git gcc make wget
 		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-armv6l.tar\.gz' | head -n 1)";
 		install_go $filename
 		install_vuls;;
