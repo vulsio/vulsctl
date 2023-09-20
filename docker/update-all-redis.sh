@@ -16,8 +16,9 @@ redis_url="redis://${redis_host}"
 ./gost.sh --debian --dbtype redis --dbpath ${redis_url}/2 ${@}
 ./gost.sh --ubuntu --dbtype redis --dbpath ${redis_url}/2 ${@}
 ./gost.sh --microsoft --dbtype redis --dbpath ${redis_url}/2 ${@}
-./nvd.sh --dbtype redis --dbpath ${redis_url}/3 ${@}
-./jvn.sh --dbtype redis --dbpath ${redis_url}/3 ${@}
+./cvedb.sh --nvd --dbtype redis --dbpath ${redis_url}/3 ${@}
+./cvedb.sh --jvn --dbtype redis --dbpath ${redis_url}/3 ${@}
+./cvedb.sh --fortinet --dbtype redis --dbpath ${redis_url}/3 ${@}
 ./exploitdb.sh --dbtype redis --dbpath ${redis_url}/4 ${@}
 ./msfdb.sh --dbtype redis --dbpath ${redis_url}/5 ${@}
 ./kev.sh --dbtype redis --dbpath ${redis_url}/6 ${@}
