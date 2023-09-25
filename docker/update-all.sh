@@ -12,8 +12,9 @@
 ./gost.sh --debian ${@}
 ./gost.sh --ubuntu ${@}
 ./gost.sh --microsoft ${@}
-./nvd.sh ${@}
-./jvn.sh ${@}
+./cvedb.sh --nvd ${@}
+./cvedb.sh --jvn ${@}
+./cvedb.sh --fortinet ${@}
 ./exploitdb.sh ${@}
 ./msfdb.sh ${@}
 ./kev.sh ${@}
