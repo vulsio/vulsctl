@@ -40,7 +40,7 @@ case "$target" in
 	--debian) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch debian ${@} 10 11
+		vuls/goval-dictionary fetch debian ${@} 10 11 12
 		;;
 	--ubuntu) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
