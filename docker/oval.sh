@@ -35,7 +35,7 @@ case "$target" in
 	--amazon) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch amazon ${@} 2 2022 2023
+		vuls/goval-dictionary fetch amazon ${@} 2 2023
 		;;
 	--debian) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
@@ -45,22 +45,22 @@ case "$target" in
 	--ubuntu) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch ubuntu ${@} 14.04 16.04 18.04 20.04 22.04
+		vuls/goval-dictionary fetch ubuntu ${@} 16.04 18.04 20.04 22.04 24.04
 		;;
 	--alpine) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch alpine ${@} 3.14 3.15 3.16 3.17
+		vuls/goval-dictionary fetch alpine ${@} 3.17 3.18 3.19 3.20
 		;;
 	--oracle) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch oracle ${@} 7 8 9
+		vuls/goval-dictionary fetch oracle ${@} 6 7 8 9
 		;;
 	--fedora) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch fedora ${@} 34 35
+		vuls/goval-dictionary fetch fedora ${@} 39 40
 		;;
 	--suse) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
@@ -75,7 +75,7 @@ case "$target" in
 		docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch suse --suse-type opensuse-leap 15.4
+		vuls/goval-dictionary fetch suse --suse-type opensuse-leap 15.5 15.6
 		;;
 	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora --suse]"
 		exit 1

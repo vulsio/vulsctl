@@ -14,27 +14,27 @@ case "$target" in
 		goval-dictionary fetch redhat ${@} 6 7 8 9
 		;;
 	--amazon)
-		goval-dictionary fetch amazon ${@} 2 2022 2023
+		goval-dictionary fetch amazon ${@} 2 2023
 		;;
 	--debian)
-		goval-dictionary fetch debian ${@} 10 11
+		goval-dictionary fetch debian ${@} 10 11 12
 		;;
 	--ubuntu)
-		goval-dictionary fetch ubuntu ${@} 14.04 16.04 18.04 20.04 22.04
+		goval-dictionary fetch ubuntu ${@} 16.04 18.04 20.04 22.04 24.04
 		;;
 	--alpine)
-		goval-dictionary fetch alpine ${@} 3.14 3.15 3.16 3.17
+		goval-dictionary fetch alpine ${@} 3.17 3.18 3.19 3.20
 		;;
 	--oracle)
-		goval-dictionary fetch oracle ${@} 7 8 9
+		goval-dictionary fetch oracle ${@} 6 7 8 9
 		;;
 	--fedora)
-		goval-dictionary fetch fedora ${@} 34 35
+		goval-dictionary fetch fedora ${@} 39 40
 		;;
 	--suse)
 		goval-dictionary fetch suse --suse-type suse-enterprise-server ${@} 12 15
 		goval-dictionary fetch suse --suse-type opensuse tumbleweed
-		goval-dictionary fetch suse --suse-type opensuse-leap 15.4
+		goval-dictionary fetch suse --suse-type opensuse-leap 15.5 15.6
 		;;
 	--*)  echo "specify [--redhat --amazon --debian --ubuntu --alpine --oracle --fedora --suse]"
 		exit 1
