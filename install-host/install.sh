@@ -146,7 +146,7 @@ if [ $distro = "" ]; then
 fi
 
 case $distro in
-	"ubuntu" | "debian" | "pop")
+	"ubuntu" | "debian" | "kali" | "pop")
 		apt-get update
 		apt-get $OPT install sqlite3 git gcc make wget
 		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
