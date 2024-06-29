@@ -15,6 +15,7 @@
 ./cvedb.sh --nvd && \
 ./cvedb.sh --jvn && \
 ./cvedb.sh --fortinet && \
+./cvedb.sh --mitre && \
 ./exploitdb.sh && \
 ./msfdb.sh && \
 ./kev.sh && \

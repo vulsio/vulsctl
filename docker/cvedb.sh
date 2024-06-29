@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 if [ $# -eq 0 ]; then
-	echo "specify [--nvd --jvn --fortinet]"
+	echo "specify [--nvd --jvn --fortinet --mitre]"
 	exit 1
 fi
 
@@ -40,10 +40,15 @@ case "$target" in
 		${DOCKER_NETWORK_OPT} \
 		vuls/go-cve-dictionary fetch ${@} fortinet
 		;;
-	--*)  echo "specify [--nvd --jvn --fortinet]"
+	--mitre) docker run --rm -i $t \
+		-v ${PWD}:/go-cve-dictionary \
+		${DOCKER_NETWORK_OPT} \
+		vuls/go-cve-dictionary fetch ${@} mitre
+		;;
+	--*)  echo "specify [--nvd --jvn --fortinet --mitre]"
 		exit 1
 	    ;;
-	*) echo "specify [--nvd --jvn --fortinet]"
+	*) echo "specify [--nvd --jvn --fortinet --mitre]"
 		exit 1
 	    ;;
 esac
