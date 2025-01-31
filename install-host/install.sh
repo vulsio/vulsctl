@@ -173,6 +173,12 @@ case $distro in
 		filename="$(wget -qO- https://golang.org/dl/ | grep -oE 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
 		install_go $filename
 		install_vuls;;
+	"amzn")
+		# For Amazon Linux 2 (amzn)
+		yum $OPT install sqlite git gcc make wget
+		filename="$(wget -qO- https://golang.org/dl/ | grep -oP 'go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1)";
+		install_go $filename
+		install_vuls;;
 	*) # we can add more install command for each distros.
 		echo "\"$distro\" is not supported distro, so please install packages manually." ;;
 esac
