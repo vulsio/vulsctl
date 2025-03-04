@@ -2,14 +2,7 @@
 
 docker pull vuls/vuls
 
-if [[ $(tty) =~ "not a tty" ]]
-then
-    t=''
-else
-    t="-t"
-fi
-
-docker run --rm -i $t\
+docker run --rm -it\
     -v $PWD:/vuls \
     vuls/vuls tui $@ \
     -log-dir=/vuls/log \

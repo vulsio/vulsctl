@@ -14,33 +14,36 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
-if [[ $(tty) =~ "not a tty" ]]
-then
-    t=''
+SELF=$$
+ls /proc/$SELF/fd/0 -l | grep /dev/pts > /dev/null
+if [ $? -eq 0 ]; then
+        echo "input device is TTY device"
+        T=-t
 else
-    t="-t"
+        echo "input device is non TTY"
+        T=
 fi
 
 docker pull vuls/go-cve-dictionary
-docker run --rm -i $t vuls/go-cve-dictionary version
+docker run --rm -i $T vuls/go-cve-dictionary version
 
 case "$target" in
-	--nvd) docker run --rm -i $t \
+	--nvd) docker run --rm -i $T \
 		-v ${PWD}:/go-cve-dictionary \
 		${DOCKER_NETWORK_OPT} \
 		vuls/go-cve-dictionary fetch ${@} nvd
 		;;
-	--jvn) docker run --rm -i $t \
+	--jvn) docker run --rm -i $T \
 		-v ${PWD}:/go-cve-dictionary \
 		${DOCKER_NETWORK_OPT} \
 		vuls/go-cve-dictionary fetch ${@} jvn
 		;;
-	--fortinet) docker run --rm -i $t \
+	--fortinet) docker run --rm -i $T \
 		-v ${PWD}:/go-cve-dictionary \
 		${DOCKER_NETWORK_OPT} \
 		vuls/go-cve-dictionary fetch ${@} fortinet
 		;;
-	--mitre) docker run --rm -i $t \
+	--mitre) docker run --rm -i $T \
 		-v ${PWD}:/go-cve-dictionary \
 		${DOCKER_NETWORK_OPT} \
 		vuls/go-cve-dictionary fetch ${@} mitre

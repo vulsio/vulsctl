@@ -2,14 +2,17 @@
 
 docker pull vuls/vuls
 
-if [[ $(tty) =~ "not a tty" ]]
-then
-    t=''
+SELF=$$
+ls /proc/$SELF/fd/0 -l | grep /dev/pts > /dev/null
+if [ $? -eq 0 ]; then
+        echo "input device is TTY device"
+        T=-t
 else
-    t="-t"
+        echo "input device is non TTY"
+        T=
 fi
 
-docker run --rm -i $t \
+docker run --rm -i $T \
     -v $HOME/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
     vuls/vuls configtest \
@@ -22,7 +25,7 @@ if [ $ret -ne 0 ]; then
 	exit 1
 fi
 
-docker run --rm -d $t \
+docker run --rm -d $T \
     -v $HOME/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
     -p 5515:5515 \
