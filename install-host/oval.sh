@@ -29,7 +29,7 @@ case "$target" in
 		goval-dictionary fetch oracle ${@} 6 7 8 9
 		;;
 	--fedora)
-		goval-dictionary fetch fedora ${@} 39 40
+		goval-dictionary fetch fedora ${@} 40 41
 		;;
 	--suse)
 		goval-dictionary fetch suse --suse-type suse-enterprise-server ${@} 12 15

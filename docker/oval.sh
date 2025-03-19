@@ -60,7 +60,7 @@ case "$target" in
 	--fedora) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
 		-v $PWD:/goval-dictionary \
-		vuls/goval-dictionary fetch fedora ${@} 39 40
+		vuls/goval-dictionary fetch fedora ${@} 40 41
 		;;
 	--suse) docker run --rm -i $t \
 		${DOCKER_NETWORK_OPT} \
