@@ -20,6 +20,8 @@ redis_url="redis://${redis_host}"
 ./cvedb.sh --jvn --dbtype redis --dbpath ${redis_url}/3 ${@}
 ./cvedb.sh --fortinet --dbtype redis --dbpath ${redis_url}/3 ${@}
 ./cvedb.sh --mitre --dbtype redis --dbpath ${redis_url}/3 ${@}
+./cvedb.sh --paloalto --dbtype redis --dbpath ${redis_url}/3 ${@}
+./cvedb.sh --cisco --dbtype redis --dbpath ${redis_url}/3 ${@}
 ./exploitdb.sh --dbtype redis --dbpath ${redis_url}/4 ${@}
 ./msfdb.sh --dbtype redis --dbpath ${redis_url}/5 ${@}
 ./kev.sh --dbtype redis --dbpath ${redis_url}/6 ${@}

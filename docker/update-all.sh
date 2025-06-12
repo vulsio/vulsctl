@@ -16,6 +16,8 @@
 ./cvedb.sh --jvn ${@}
 ./cvedb.sh --fortinet ${@}
 ./cvedb.sh --mitre ${@}
+./cvedb.sh --paloalto ${@}
+./cvedb.sh --cisco ${@}
 ./exploitdb.sh ${@}
 ./msfdb.sh ${@}
 ./kev.sh ${@}
