@@ -8,16 +8,19 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
-if [[ $(tty) =~ "not a tty" ]]
-then
-    t=''
+SELF=$$
+ls /proc/$SELF/fd/0 -l | grep /dev/pts > /dev/null
+if [ $? -eq 0 ]; then
+        echo "input device is TTY device"
+        T=-t
 else
-    t="-t"
+        echo "input device is non TTY"
+        T=
 fi
 
-docker run --rm -i $t vuls/go-cti version
+docker run --rm -i $T vuls/go-cti version
 
-docker run --rm -i $t \
+docker run --rm -i $T \
     ${DOCKER_NETWORK_OPT} \
     -v $PWD:/go-cti \
     vuls/go-cti fetch threat ${@}

@@ -14,33 +14,36 @@ else
 	DOCKER_NETWORK_OPT="--network ${DOCKER_NETWORK}"
 fi
 
-if [[ $(tty) =~ "not a tty" ]]
-then
-    t=''
+SELF=$$
+ls /proc/$SELF/fd/0 -l | grep /dev/pts > /dev/null
+if [ $? -eq 0 ]; then
+        echo "input device is TTY device"
+        T=-t
 else
-    t="-t"
+        echo "input device is non TTY"
+        T=
 fi
 
 docker pull vuls/gost
-docker run --rm -i $t vuls/gost version
+docker run --rm -i $T vuls/gost version
 
 case "$target" in
-	--redhat) docker run --rm -i $t \
+	--redhat) docker run --rm -i $T \
 		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} redhat
 		;;
-	--debian) docker run --rm -i $t \
+	--debian) docker run --rm -i $T \
 		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} debian
 		;;
-	--ubuntu) docker run --rm -i $t \
+	--ubuntu) docker run --rm -i $T \
 		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} ubuntu
 		;;
-	--microsoft) docker run --rm -i $t \
+	--microsoft) docker run --rm -i $T \
 		-v ${PWD}:/gost \
 		${DOCKER_NETWORK_OPT} \
 		vuls/gost fetch ${@} microsoft
