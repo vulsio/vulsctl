@@ -13,6 +13,7 @@
 ./gost.sh --ubuntu ${@}
 ./gost.sh --microsoft ${@}
 ./cvedb.sh --nvd ${@}
+./cvedb.sh --vulncheck ${@}
 ./cvedb.sh --jvn ${@}
 ./cvedb.sh --fortinet ${@}
 ./cvedb.sh --mitre ${@}

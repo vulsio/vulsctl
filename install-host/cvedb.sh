@@ -1,7 +1,7 @@
 #! /bin/sh -
 
 if [ $# -eq 0 ]; then
-	echo "specify [--nvd --jvn --fortinet --mitre --paloalto --cisco]"
+	echo "specify [--nvd --vulncheck --jvn --fortinet --mitre --paloalto --cisco]"
 	exit 1
 fi
 
@@ -11,6 +11,9 @@ shift
 case "$target" in
 	--nvd)
 		go-cve-dictionary fetch ${@} nvd
+		;;
+	--vulncheck)
+		go-cve-dictionary fetch ${@} vulncheck
 		;;
 	--jvn)
 		go-cve-dictionary fetch ${@} jvn
@@ -27,10 +30,10 @@ case "$target" in
 	--cisco)
 		go-cve-dictionary fetch ${@} cisco
 		;;
-	--*)  echo "specify [--nvd --jvn --fortinet --mitre --paloalto --cisco]"
+	--*)  echo "specify [--nvd --vulncheck --jvn --fortinet --mitre --paloalto --cisco]"
 		exit 1
 		;;
-	*) echo "specify [--nvd --jvn --fortinet --mitre --paloalto --cisco]"
+	*) echo "specify [--nvd --vulncheck --jvn --fortinet --mitre --paloalto --cisco]"
 		exit 1
 		;;
 esac
