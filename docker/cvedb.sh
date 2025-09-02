@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 if [ $# -eq 0 ]; then
-	echo "specify [--nvd --jvn --fortinet --mitre --paloalto --cisco]"
+	echo "specify [--nvd --vulncheck --jvn --fortinet --mitre --paloalto --cisco]"
 	exit 1
 fi
 
@@ -30,6 +30,11 @@ case "$target" in
 		${DOCKER_NETWORK_OPT} \
 		vuls/go-cve-dictionary fetch ${@} nvd
 		;;
+	--vulncheck) docker run --rm -i $t \
+		-v ${PWD}:/go-cve-dictionary \
+		${DOCKER_NETWORK_OPT} \
+		vuls/go-cve-dictionary fetch ${@} vulncheck
+		;;
 	--jvn) docker run --rm -i $t \
 		-v ${PWD}:/go-cve-dictionary \
 		${DOCKER_NETWORK_OPT} \
@@ -55,10 +60,10 @@ case "$target" in
 		${DOCKER_NETWORK_OPT} \
 		vuls/go-cve-dictionary fetch ${@} cisco
 		;;
-	--*)  echo "specify [--nvd --jvn --fortinet --mitre --paloalto --cisco]"
+	--*)  echo "specify [--nvd --vulncheck --jvn --fortinet --mitre --paloalto --cisco]"
 		exit 1
 	    ;;
-	*) echo "specify [--nvd --jvn --fortinet --mitre --paloalto --cisco]"
+	*) echo "specify [--nvd --vulncheck --jvn --fortinet --mitre --paloalto --cisco]"
 		exit 1
 	    ;;
 esac
